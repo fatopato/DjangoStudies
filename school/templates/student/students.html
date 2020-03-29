@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="{% static 'css/students_style.css'%}">
+  </head>
+  <body>
+    <h1>Here are the Students:</h1>
+    {%if students%}
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Enrollment Number</th>
+        <th>Class Room</th>
+      </thead>
+
+      {% for student in students %}
+
+      <tr>
+        <td>{{student.name}}</td>
+        <td>{{student.enroll_num}}</td>
+        <td>{{student.class_room}}</td>
+      </tr>
+
+      {% endfor %}
+
+      {%else%}
+      <p>No students here</p>
+      {%endif%}
+    </table>
+  </body>
+</html>
